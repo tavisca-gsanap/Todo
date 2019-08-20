@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    padding: 10px;
+    background: #f1f1f1;
+  }
+  
+  /* Header/Blog Title */
+  .header {
+    padding: 10px;
+    text-align: center;
+    background: white;
+  }
+  
+  .header h1 {
+    font-size: 20px;
+  }
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 20%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 80%;
+    background-color: #f1f1f1;
+    padding-left: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Footer */
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+  }
+
+  .dropdown-content {
+      background-color: #f9f9f9;
+      text-align: center;
+      }
+      
+  .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  margin: 5px;
+  text-decoration: none;
+  display: block;
+  }
+  .dropbtn {
+      display: none;
+      }
+
+  .dropdown-content a:hover {background-color: #f1f1f1}
+
+  .selected {
+    background-color: #6897ee;
+    color: white;
+  }
+
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+      .dropbtn {
+      display: block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      width: 100%;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      }
+
+      .dropdown {
+      position: relative;
+      width: 100%;
+      display: inline-block;
+      }
+
+      .dropdown-content {
+      display: none;
+      position: absolute;
+      width: 100%;
+      background-color: #f9f9f9;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      }
+      
+      .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      }
+
+      .dropdown-content a:hover {background-color: #f1f1f1}
+
+      .dropdown:hover .dropdown-content {
+      display: block;
+      }
+
+      .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+      }
+  }
