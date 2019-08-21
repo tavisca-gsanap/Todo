@@ -65,16 +65,27 @@
         tr.appendChild(td);
         var td = document.createElement("TD");
         var btn = document.createElement("BUTTON");
+        btn.setAttribute("onclick","edit("+count+")")
         btn.innerHTML = 'Edit' ;
         td.appendChild(btn);
         tr.appendChild(td);
         document.getElementById("tasks").appendChild(tr);
     }
     function del(task){
-        var input, filter, tasks, tr, a, i, txtValue;
-            tasks = document.getElementById("tasks");
-            tr = document.getElementById(task)
-            tasks.removeChild(tr);
+        var input, tasks, tr, a, i, txtValue;
+        tasks = document.getElementById("tasks");
+        tr = document.getElementById(task)
+        tasks.removeChild(tr);
+    }
+    function edit(task){
+        var input, tasks, tr, a, i, txtValue;
+        tasks = document.getElementById("tasks");
+        tr = document.getElementById(task)
+        text=tr.getElementsByTagName("td")[0];
+        var updatedText=prompt("Enter updated task name",text.innerHTML) 
+        if(updatedText != null){
+            text.innerHTML=updatedText;
+        }
     }
     function selectPage(page,i){
         var card = document.getElementById("card");
