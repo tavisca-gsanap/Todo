@@ -11,100 +11,19 @@
         padding: 5px;
         text-align: left;
     }
+    .login {
+        height:max-content;
+        width:max-content;
+        margin:auto;
+        border:1px #CCC solid;
+        padding:10px;
+        }
+    .login input {
+        width: 100%;
+        padding:5px;
+        margin:5px
+        }
     </style>
-    <style>
-        .login {
-            height:max-content;
-            width:max-content;
-            margin:auto;
-            border:1px #CCC solid;
-            padding:10px;
-            }
-    
-        .login input {
-            width: 100%;
-            padding:5px;
-            margin:5px
-            }
-    </style>
-    <script>
-        var count=0;
-        function load(){
-            selectPage("todo",0);
-            func("Submit Assignment");
-            func("Read JS");
-        }
-        function search(){
-            var input, filter, tasks, tr, a, i, txtValue;
-            input = document.getElementById("search-bar");
-            filter = input.value.toUpperCase();
-            tasks = document.getElementById("tasks");
-            tr = tasks.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                a = tr[i].getElementsByTagName("td")[0];
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    function func(task){
-        ++count;
-        var tr = document.createElement("TR");
-        tr.setAttribute("id", count);
-        var td = document.createElement("TD");
-        td.appendChild(document.createTextNode(task));
-        tr.appendChild(td);
-        var td = document.createElement("TD");
-        var btn = document.createElement("BUTTON");
-        btn.setAttribute("onclick","del("+count+")")
-        btn.innerHTML = 'X' ;
-        td.appendChild(btn);
-        tr.appendChild(td);
-        var td = document.createElement("TD");
-        var btn = document.createElement("BUTTON");
-        btn.setAttribute("onclick","edit("+count+")")
-        btn.innerHTML = 'Edit' ;
-        td.appendChild(btn);
-        tr.appendChild(td);
-        document.getElementById("tasks").appendChild(tr);
-    }
-    function del(task){
-        var input, tasks, tr, a, i, txtValue;
-        tasks = document.getElementById("tasks");
-        tr = document.getElementById(task)
-        tasks.removeChild(tr);
-    }
-    function edit(task){
-        var input, tasks, tr, a, i, txtValue;
-        tasks = document.getElementById("tasks");
-        tr = document.getElementById(task)
-        text=tr.getElementsByTagName("td")[0];
-        var updatedText=prompt("Enter updated task name",text.innerHTML) 
-        if(updatedText != null){
-            text.innerHTML=updatedText;
-        }
-    }
-    function selectPage(page,i){
-        var card = document.getElementById("card");
-        var pages = card.getElementsByTagName("div");
-        pages[0].style.display='none';
-        pages[1].style.display='none';
-        pages[2].style.display='none';
-        document.getElementById(page).style.display="";
-        var as = document.getElementsByClassName("dropdown-content")[0].getElementsByTagName("a");
-        for(var j=0;j<as.length;j++){
-            if(j==i){
-                as[i].style.backgroundColor="#6897ee";
-            }
-            else{
-                as[j].style.backgroundColor="";
-            }
-        }
-    }
-    </script>
 </head>
 <body onload="load()">
     <div class="header">
@@ -118,10 +37,11 @@
                 <div class="dropdown">
                     <div class="dropbtn">Menu</div>
                     <div class="dropdown-content">
-                        <hr />
+                        <div id="logout_selector"><hr />
                         <a  href="#" onclick="selectPage('todo',0)">To Do</a><hr/>
-                        <a  href="#" onclick="selectPage('user',1)">User</a><hr/>
-                        <a  href="#" onclick="selectPage('login',2)">Login</a>
+                        <a  href="#" onclick="selectPage('user',1)">User</a>
+                        <hr/><a  href="#" onclick="logout()">Logout</a></div>
+                        <div id="login_selector"><hr/><a  href="#" onclick="selectPage('login',2)" >Login</a></div>
                         <hr />
                     </div>
                 </div>
@@ -139,16 +59,20 @@
                 <h3>User Info</h3><br><br>
                 <img src="img/user.png" alt="user" max-height="500px" max-width="500px"><br>
                 <br>
-                Name : Govind Sanap
+                Name : Govind Sanap<br>
+                <h6 id="uid"></h6>
               </div>
               <div id="login">
                     <h3>Login Page</h3>
                     <form class="login" id="login-form">
-                        <input type="text" placeholder="Username" id="username"> <br>
+                        <input type="number" placeholder="UserId" id="username" max="20"> <br>
                         <input type="password" placeholder="Password" id="password"> <br>
-                        <input type="submit" value="Sign In">
+                        <input type="submit" value="Sign In" onclick="login()"><input type="reset">
                         <a href="#" class="forgot">forgot password?</a>
                     </form>
+              </div>
+              <div id="logout">
+                    <h3>You have been logged out successfully</h3>
               </div>
           </div>
         </div>
@@ -163,4 +87,5 @@
               </div>
         </div>
   </body>
+  <script src="script.js"></script>
   </html>

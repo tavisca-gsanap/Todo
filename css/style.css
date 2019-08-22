@@ -8,7 +8,6 @@
     background: #f1f1f1;
   }
   
-  /* Header/Blog Title */
   .header {
     padding: 10px;
     text-align: center;
@@ -19,23 +18,19 @@
     font-size: 20px;
   }
   
-  /* Create two unequal columns that floats next to each other */
-  /* Left column */
   .leftcolumn {   
     float: left;
     width: 20%;
   }
   
-  /* Right column */
   .rightcolumn {
     float: left;
     width: 80%;
     margin-bottom: 20px;
     background-color: #f1f1f1;
-    padding: 20px;
+    padding-left: 20px;
   }
   
-  /* Add a card effect for articles */
   .card {
     background-color: white;
     padding: 20px;
@@ -43,14 +38,12 @@
     margin-top: 20px;
   }
   
-  /* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
   
-  /* Footer */
   .footer {
     position: fixed;
     left: 0;
