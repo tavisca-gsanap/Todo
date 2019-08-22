@@ -67,6 +67,10 @@ function search(){
     }
 }
 function func(task){
+    if(task==""){
+        alert("Enter Something...");
+        return;
+    }
     ++count;
     let tr,td,btn;
     tr = document.createElement("TR");
@@ -87,6 +91,8 @@ function func(task){
     td.appendChild(btn);
     tr.appendChild(td);
     document.getElementById("tasks").appendChild(tr);
+    document.getElementById("search-bar").value="";
+    search();
 }
 function del(task){
     let input, tasks, tr, a, i, txtValue;
